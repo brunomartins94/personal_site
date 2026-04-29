@@ -38,6 +38,28 @@ function toggleTheme() {
     updateThemeButtons(nextTheme);
 }
 
+function setupScrollReveal() {
+    const revealItems = document.querySelectorAll('.reveal');
+    if (!revealItems.length) return;
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.16,
+            rootMargin: '0px 0px -60px 0px'
+        }
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+}
+
 btnMenu.addEventListener('click', ()=>{
     menu.classList.add('abrir-menu');
     overlay.style.display = 'block';
@@ -61,6 +83,8 @@ if (themeToggleMobile) {
         fecharMenu();
     });
 }
+
+setupScrollReveal();
 
 linksMenuMobile.forEach((link) => {
     link.addEventListener('click', () => {

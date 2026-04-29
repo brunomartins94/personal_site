@@ -1,0 +1,32 @@
+@keyframes flutuar {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 16px;
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .topo-do-site .img-topo-site img {
+        animation: none;
+    }
+}
