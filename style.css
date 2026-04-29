@@ -9,6 +9,17 @@
     --shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
 }
 
+[data-theme="light"] {
+    --bg: #eef3f8;
+    --surface: #ffffff;
+    --surface-soft: #f8fafc;
+    --text: #111827;
+    --muted: #4b5563;
+    --primary: #0f8f4e;
+    --primary-strong: #0c773f;
+    --shadow: 0 16px 35px rgba(15, 23, 42, 0.12);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -24,6 +35,11 @@ body {
     background: radial-gradient(circle at 20% 10%, #121212 0%, var(--bg) 40%, #030303 100%);
     color: var(--text);
     min-height: 100vh;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="light"] body {
+    background: radial-gradient(circle at 20% 10%, #ffffff 0%, var(--bg) 45%, #e2e8f0 100%);
 }
 
 .interface {
@@ -72,6 +88,38 @@ h2.titulo span {
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
+.theme-toggle {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 10px 16px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+[data-theme="light"] .theme-toggle {
+    border-color: rgba(15, 23, 42, 0.18);
+    background-color: rgba(15, 23, 42, 0.03);
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 255, 102, 0.45);
+}
+
+.menu-mobile .theme-toggle.mobile {
+    width: calc(100% - 20%);
+    margin: 10px 10% 14px;
+    justify-content: flex-start;
+}
+
 button:hover,
 form .btn-enviar input:hover {
     background-color: var(--primary-strong);
@@ -89,6 +137,11 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+[data-theme="light"] header {
+    background-color: rgba(255, 255, 255, 0.72);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
 header > .interface {
     display: flex;
     align-items: center;
@@ -103,14 +156,14 @@ header > .interface {
 }
 
 header a {
-    color: #9a9a9a;
+    color: var(--muted);
     text-decoration: none;
     display: inline-block;
     transition: color 0.2s ease, transform 0.2s ease;
 }
 
 header nav.menu-desktop a:hover {
-    color: #fff;
+    color: var(--text);
     transform: translateY(-2px);
 }
 
@@ -143,6 +196,11 @@ header nav.menu-desktop ul li {
     border-left: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+[data-theme="light"] .menu-mobile {
+    background-color: #ffffff;
+    border-left: 1px solid rgba(15, 23, 42, 0.08);
+}
+
 .menu-mobile.abrir-menu {
     width: 72%;
     max-width: 320px;
@@ -163,7 +221,7 @@ header nav.menu-desktop ul li {
 }
 
 .menu-mobile nav ul li a {
-    color: #fff;
+    color: var(--text);
     font-size: 1.1rem;
     font-weight: 400;
     padding: 16px 10%;
@@ -172,7 +230,7 @@ header nav.menu-desktop ul li {
 
 .menu-mobile nav ul li a:hover {
     background-color: var(--primary);
-    color: #000;
+    color: #fff;
 }
 
 .overlay-menu {
@@ -200,8 +258,20 @@ section.topo-do-site .flex {
     max-width: 620px;
 }
 
+.mini-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(120deg, rgba(0, 255, 102, 0.16), rgba(0, 255, 102, 0.05));
+    border: 1px solid rgba(0, 255, 102, 0.25);
+    color: var(--text);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+}
+
 .topo-do-site h1 {
-    color: #fff;
+    color: var(--text);
     font-size: clamp(2rem, 5vw, 3.3rem);
     line-height: 1.15;
     letter-spacing: -0.02em;
@@ -224,6 +294,82 @@ section.topo-do-site .flex {
     filter: drop-shadow(0 22px 26px rgba(0, 0, 0, 0.34));
 }
 
+.topo-do-site .img-topo-site {
+    position: relative;
+}
+
+.tech-circle {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 255, 102, 0.35), rgba(0, 255, 102, 0));
+    filter: blur(8px);
+    position: absolute;
+    top: 16%;
+    left: 16%;
+    z-index: -1;
+}
+
+.quick-highlights {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+}
+
+.quick-highlights span {
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 0.88rem;
+    color: var(--text);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+[data-theme="light"] .quick-highlights span {
+    background-color: rgba(15, 23, 42, 0.05);
+    border-color: rgba(15, 23, 42, 0.12);
+}
+
+section.stats {
+    padding-top: 0;
+}
+
+.stats .flex {
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    min-width: 220px;
+    flex: 1;
+    max-width: 320px;
+    padding: 22px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow);
+}
+
+[data-theme="light"] .stat-card {
+    background: linear-gradient(180deg, #ffffff, #f8fafc);
+    border-color: rgba(15, 23, 42, 0.1);
+}
+
+.stat-card strong {
+    display: block;
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.stat-card span {
+    color: var(--muted);
+}
+
 @keyframes flutuar {
     0% {
         top: 0;
@@ -238,7 +384,7 @@ section.especialidades .flex {
 }
 
 .especialidades .especialidades-box {
-    color: #fff;
+    color: var(--text);
     padding: 34px 28px;
     border-radius: 18px;
     margin-top: 18px;
@@ -281,7 +427,7 @@ section.sobre .flex {
 }
 
 .sobre .txt-sobre {
-    color: #fff;
+    color: var(--text);
 }
 
 .sobre .txt-sobre h2 {
@@ -367,7 +513,7 @@ form textarea {
     outline: none;
     padding: 16px;
     border-radius: 12px;
-    color: #fff;
+    color: var(--text);
     font-size: 1rem;
 }
 
@@ -397,9 +543,19 @@ form .btn-enviar input {
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
+[data-theme="light"] form input,
+[data-theme="light"] form textarea {
+    background-color: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.15);
+}
+
 footer {
     padding: 36px 0;
     background-color: #070707;
+}
+
+[data-theme="light"] footer {
+    background-color: #e5eaf1;
 }
 
 footer .flex {
@@ -422,7 +578,7 @@ footer .line-footer p i {
 }
 
 footer .line-footer p a {
-    color: #fff;
+    color: var(--text);
     text-decoration: none;
 }
 
@@ -442,6 +598,15 @@ footer .line-footer p a:hover {
 
     .topo-do-site .txt-topo-site p {
         margin-inline: auto;
+    }
+
+    .mini-badge,
+    .quick-highlights {
+        justify-content: center;
+    }
+
+    .theme-toggle span {
+        display: none;
     }
 
     h2.titulo {
