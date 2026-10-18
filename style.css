@@ -56,3 +56,4 @@ h1 em, h2 span { color: var(--primary); font-style: normal; }
 @media (max-width: 420px) { .container { width: min(100% - 24px, 1120px); }.brand { font-size: .92rem; }.hero-actions { align-items: flex-start; flex-direction: column; gap: 1rem; }.proof-grid { grid-template-columns: 1fr; }.proof-grid a { grid-column: auto; }.proof-grid > * { min-height: auto; border-right: 0; border-bottom: 1px solid var(--line); }.proof-grid > *:last-child { border-bottom: 0; }.data-visual { min-height: 320px; padding: 1rem; }.flow-node { width: 88%; padding: .7rem; }.flow-node strong { font-size: .7rem; }.visual-footer { right: 1rem; bottom: .9rem; font-size: .57rem; }.roadmap-list li { grid-template-columns: 32px 1fr; gap: .65rem; padding: 1rem; } }
 
 .skill-card .text-link{display:inline-block;margin-top:1.4rem;font-size:.85rem}.game-play{margin-right:1rem}.data-visual .flow-node{width:min(290px,90%)}
+#roadmap{display:none}
