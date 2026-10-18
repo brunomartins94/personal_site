@@ -57,3 +57,4 @@ h1 em, h2 span { color: var(--primary); font-style: normal; }
 
 .skill-card .text-link{display:inline-block;margin-top:1.4rem;font-size:.85rem}.game-play{margin-right:1rem}.data-visual .flow-node{width:min(290px,90%)}
 #roadmap{display:none}
+.project-intro{max-width:720px;margin-top:1rem;color:var(--muted);font-size:1rem}.next-projects{grid-template-columns:repeat(3,1fr)}.next-project .text-link{display:inline-block;margin-top:1rem;font-size:.85rem}@media (max-width:760px){.next-projects{grid-template-columns:1fr}}
