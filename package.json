@@ -1,0 +1,9 @@
+{
+  "name": "bruno-martins-personal-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "sync:orbital": "node scripts/sync-orbital.mjs"
+  }
+}
